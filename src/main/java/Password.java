@@ -4,4 +4,5 @@ public class Password {
             return false; }
         return password.length() >= 8;
     }
+
 }

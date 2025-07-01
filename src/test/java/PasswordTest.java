@@ -10,5 +10,23 @@ class PasswordTest {
         assertFalse(validator.hasMinimumLenght("1234567"));
     }
 
+    @Test
+    public void testHasMinimumLenghtWithNull() {
+        Password validator = new Password();
+        assertFalse(validator.hasMinimumLenght(null));
+    }
+
+    @Test
+    public void testHasMinimumLenghtWithEmptyString() {
+        Password validator = new Password();
+        assertFalse(validator.hasMinimumLenght(""));
+    }
+
+    @Test
+    public void testHasMinimumLenghtWithLongPassword() {
+        Password validator = new Password();
+        assertTrue(validator.hasMinimumLenght("abcdefghijk"));
+    }
+
 
 }
