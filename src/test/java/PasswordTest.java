@@ -53,6 +53,25 @@ class PasswordTest {
         assertTrue(validator.containsDigit("abc123xyz456"));
     }
 
+    @Test
+    public void testHasUpperAndLowerCase() {
+        Password validator = new Password();
+        assertTrue(validator.hasUpperAndLowerCase("Abc123"));
+        assertFalse(validator.hasUpperAndLowerCase("abc123"));
+        assertFalse(validator.hasUpperAndLowerCase("ABC123"));
+    }
+
+    @Test
+    public void testHasUpperAndLowerCaseWithNull() {
+        Password validator = new Password();
+        assertFalse(validator.hasUpperAndLowerCase(null));
+    }
+
+    @Test
+    public void testHasUpperAndLowerCaseWithEmptyString() {
+        Password validator = new Password();
+        assertFalse(validator.hasUpperAndLowerCase(""));
+    }
 
 
 

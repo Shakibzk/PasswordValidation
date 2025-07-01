@@ -16,4 +16,26 @@ public class Password {
         }
         return false;
     }
-}
+
+    public boolean hasUpperAndLowerCase(String password) {
+        if (password == null) {
+            return false;
+        }
+        boolean hasUpper = false;
+        boolean hasLower = false;
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                hasUpper = true;
+            }
+            if (Character.isLowerCase(c)) {
+                hasLower = true;
+            }
+            if (hasUpper && hasLower) {
+                return true;
+            }
+        }
+        return false;
+    }
+    }
+
+
