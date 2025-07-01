@@ -73,6 +73,11 @@ class PasswordTest {
         assertFalse(validator.hasUpperAndLowerCase(""));
     }
 
-
-
+    @Test
+    public void testHasUpperAnndLowerWithMixedCase() {
+        Password validator = new Password();
+        assertTrue(validator.isCommonPassword("Password1"));
+        assertTrue(validator.isCommonPassword("Aa12345"));
+        assertFalse(validator.isCommonPassword("MySecurePass123"));
+    }
 }

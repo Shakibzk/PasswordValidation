@@ -36,6 +36,19 @@ public class Password {
         }
         return false;
     }
+
+    public boolean isCommonPassword(String password) {
+        if (password == null) {
+            return false;
+        }
+        String[] commonPasswords = {"Password1", "Aa345678", "12345678", "Qwerty123"};
+        for (String common : commonPasswords) {
+            if (password.equals(common)) {
+                return true;
+            }
+        }
+        return false;
     }
+}
 
 
