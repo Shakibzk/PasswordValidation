@@ -106,4 +106,16 @@ class PasswordTest {
         assertTrue(validator.containsSpecialCharacter("abc@123#"));
     }
 
+    @Test
+    public void testGenerateRandomPassword() {
+        Password validator = new Password();
+        String password = validator.generateRandomPassword();
+        assertTrue(validator.containsDigit(password), "Password should contain a digit");
+        assertTrue(validator.hasUpperAndLowerCase(password), "Password should have upper and lower case");
+        assertTrue(validator.containsSpecialCharacter(password), "Password should contain a special character");
+        assertFalse(validator.isCommonPassword(password), "Password should not be common");
+    }
+
+
+
 }

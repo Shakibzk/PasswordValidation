@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Password {
     public boolean hasMinimumLenght(String password) {
         if ( password == null ) {
@@ -63,7 +65,36 @@ public class Password {
         return false;
     }
 
+    public String generateRandomPassword() {
+        String lowerCase = "abcdefghijklmnopqrstuvwxyz";
+        String upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String digits = "0123456789";
+        String specialCharacters = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+        String allCharacters = lowerCase + upperCase + digits + specialCharacters;
 
+        Random random = new Random();
+        StringBuilder password = new StringBuilder();
+
+        int lenght = 12;
+
+        password.append(allCharacters.charAt(random.nextInt(allCharacters.length())));
+        password.append(upperCase.charAt(random.nextInt(upperCase.length())));
+        password.append(digits.charAt(random.nextInt(digits.length())));
+        password.append(specialCharacters.charAt(random.nextInt(specialCharacters.length())));
+
+        for (int i = 4; i < lenght; i++) {
+            password.append(allCharacters.charAt(random.nextInt(allCharacters.length())));
+        }
+
+        char[] passwordArray = password.toString().toCharArray();
+        for (int i = passwordArray.length - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            char temp = passwordArray[i];
+            passwordArray[i] = passwordArray[j];
+            passwordArray[j] = temp;
+        }
+        return new String(passwordArray);
+    }
 }
 
 
