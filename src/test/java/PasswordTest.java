@@ -80,4 +80,30 @@ class PasswordTest {
         assertTrue(validator.isCommonPassword("Aa12345"));
         assertFalse(validator.isCommonPassword("MySecurePass123"));
     }
+
+    @Test
+    public void testContainsSpecialCharacter() {
+        Password validator = new Password();
+        assertTrue(validator.containsSpecialCharacter("abc123!")); // داره کاراکتر خاص
+        assertFalse(validator.containsSpecialCharacter("abc123")); // نداره کاراکتر خاص
+    }
+
+    @Test
+    public void testContainsSpecialCharacterWithNull() {
+        Password validator = new Password();
+        assertFalse(validator.containsSpecialCharacter(null));
+    }
+
+    @Test
+    public void testContainsSpecialCharacterWithEmptyString() {
+        Password validator = new Password();
+        assertFalse(validator.containsSpecialCharacter(""));
+    }
+
+    @Test
+    public void testContainsSpecialCharacterWithMultipleSpecialChars() {
+        Password validator = new Password();
+        assertTrue(validator.containsSpecialCharacter("abc@123#"));
+    }
+
 }

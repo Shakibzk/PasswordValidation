@@ -49,6 +49,21 @@ public class Password {
         }
         return false;
     }
+
+    public boolean containsSpecialCharacter(String password) {
+        if (password == null) {
+            return false;
+        }
+        String specialCharacters = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+        for (char c : password.toCharArray()) {
+            if (specialCharacters.indexOf(c) != -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
 
 
